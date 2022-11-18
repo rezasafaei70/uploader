@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   if(req.get('origin')==config.origin){
     next()
   }else{
-    res.send('s')
+    next()
   }
  
 })

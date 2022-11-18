@@ -54,6 +54,6 @@ app.get('/', (req, res) => {
   res.send('hello world')
 })
 app.use('/companion', companionApp)
-const server = app.listen(5000)
+const server = app.listen(4000)
 
 companion.socket(server)

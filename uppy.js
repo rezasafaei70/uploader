@@ -28,7 +28,7 @@ const options = {
     bucket: storageConfig.bucket,
     endpoint:storageConfig.endpoint,
     expires: 3600, // default: 300 (5 minutes)
-    acl: 'public-read', // default: none
+    acl: 'private', // default: none
   },
   server: {
     host: 'localhost:3020',
@@ -46,13 +46,13 @@ app.use((req, res, next) => {
   if(req.get('origin')==config.origin){
     next()
   }else{
-    next()
+    res.send("error")
   }
  
 })
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+  // app.get('/', (req, res) => {
+  //   res.send('hello world')
+  // })
 app.use('/companion', companionApp)
 const server = app.listen(4000)
 
